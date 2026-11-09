@@ -245,8 +245,8 @@
 }
 
 .overlay-mark {
-  width: 58px;
   height: 58px;
+  padding: 0 18px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, .7);

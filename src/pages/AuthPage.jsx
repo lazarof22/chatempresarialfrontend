@@ -167,11 +167,10 @@ function AuthPage() {
         {/* Panel turquesa deslizante */}
         <div className="auth-overlay">
           <div className="overlay-panel overlay-right">
-            <span className="overlay-mark">M</span>
+            <span className="overlay-mark">GiChat</span>
             <h2>¡Bienvenido de nuevo!</h2>
             <p>
-              Nos alegra volver a verte. Inicia sesión con tus datos y continúa
-              disfrutando de tu espacio.
+              Crea tu cuenta y descubre todo lo que tenemos preparado para ti.
             </p>
             <button className="overlay-button"
               type="button"
@@ -181,10 +180,11 @@ function AuthPage() {
           </div>
 
           <div className="overlay-panel overlay-left">
-            <span className="overlay-mark">M</span>
+            <span className="overlay-mark">GiChat</span>
             <h2>¡Hola, bienvenido!</h2>
             <p>
-              Crea tu cuenta y descubre todo lo que tenemos preparado para ti.
+              Nos alegra volver a verte. Inicia sesión con tus datos y continúa
+              disfrutando de tu espacio.
             </p>
             <button
               className="overlay-button"
