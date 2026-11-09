@@ -5,8 +5,8 @@ import { useAuth } from "../context/AuthContext";
 import "./AuthPage.css";
 
 function AuthPage() {
-  const [showLogin, setShowLogin] = useState(false);
-  const { signup, login, isAuthenticated } = useAuth();
+  const [showLogin, setShowLogin] = useState(true);
+  const { signup, signin, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const registerForm = useForm();
@@ -21,13 +21,7 @@ function AuthPage() {
   });
 
   const onLogin = loginForm.handleSubmit(async (values) => {
-    if (typeof login !== "function") {
-      console.error(
-        "No existe login() en AuthContext. Añade loginRequest y la función login al contexto."
-      );
-      return;
-    }
-    await login(values);
+    await signin(values);
   });
 
   return (
@@ -120,19 +114,23 @@ function AuthPage() {
             <p className="auth-subtitle">Introduce tus datos para continuar.</p>
 
             <label className="auth-input-wrap">
-              <span className="field-icon" aria-hidden="true">✉</span>
+              <span className="field-icon" aria-hidden="true">♙</span>
               <input
-                type="email"
-                placeholder="Correo electrónico"
-                autoComplete="email"
-                {...loginForm.register("email", {
-                  required: "El correo electrónico es obligatorio",
+                type="text"
+                placeholder="Nombre de usuario"
+                autoComplete="username"
+                {...loginForm.register("username", {
+                  required: "El nombre de usuario es obligatorio",
+                  minLength: {
+                    value: 3,
+                    message: "Usa al menos 3 caracteres",
+                  },
                 })}
               />
             </label>
-            {loginForm.formState.errors.email && (
+            {loginForm.formState.errors.username && (
               <span className="auth-error">
-                {loginForm.formState.errors.email.message}
+                {loginForm.formState.errors.username.message}
               </span>
             )}
 
@@ -168,23 +166,21 @@ function AuthPage() {
 
         {/* Panel turquesa deslizante */}
         <div className="auth-overlay">
-          <div className="overlay-panel overlay-left">
+          <div className="overlay-panel overlay-right">
             <span className="overlay-mark">M</span>
             <h2>¡Bienvenido de nuevo!</h2>
             <p>
               Nos alegra volver a verte. Inicia sesión con tus datos y continúa
               disfrutando de tu espacio.
             </p>
-            <button
-              className="overlay-button"
+            <button className="overlay-button"
               type="button"
-              onClick={() => setShowLogin(true)}
-            >
+              onClick={() => setShowLogin(true)}>
               INICIAR SESIÓN
             </button>
           </div>
 
-          <div className="overlay-panel overlay-right">
+          <div className="overlay-panel overlay-left">
             <span className="overlay-mark">M</span>
             <h2>¡Hola, bienvenido!</h2>
             <p>

@@ -280,11 +280,13 @@
 .overlay-left {
   transform: translateX(-18%);
   opacity: 0;
+  pointer-events: none;
 }
 
 .overlay-right {
   transform: translateX(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Estado: se muestra el formulario de Login */
@@ -307,11 +309,13 @@
 .auth-card.show-login .overlay-left {
   transform: translateX(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
 .auth-card.show-login .overlay-right {
   transform: translateX(18%);
   opacity: 0;
+  pointer-events: none;
 }
 
 .mobile-switch {
