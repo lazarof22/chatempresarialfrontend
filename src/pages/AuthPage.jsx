@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import "./AuthPage.css";
+import "../styles/AuthPage.css";
 
 function AuthPage() {
   const [showLogin, setShowLogin] = useState(true);
